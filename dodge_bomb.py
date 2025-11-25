@@ -14,6 +14,20 @@ DELTA={pg.K_UP:(0,-5),
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 
+def check_bound(rct: pg.Rect) -> tuple[bool, bool]:
+    """
+    引数：こうかとん or 爆弾のRect
+    戻り値: タプル（横方向のはみ出し判定結果、縦方向のはみ出し判定結果）
+    画面内：True/画面外：False
+    """ 
+    yoko,tate = True, True
+    if rct.left < 0 or WIDTH < rct.right:#横方向のはみ出しチェック
+        yoko= False
+    if rct.top < 0 or HEIGHT < rct.bottom:#縦方向のはみ出しチェック
+        tate= False
+    return yoko, tate
+
+
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -50,10 +64,16 @@ def main():
             if key_lst[key]:
                 sum_mv[0] += mv[0]#横方向の移動量
                 sum_mv[1] += mv[1]#縦方向の移動量 
-
         kk_rct.move_ip(sum_mv)
-        screen.blit(kk_img, kk_rct)
+        if check_bound(kk_rct.move(sum_mv)) != (True, True):#画面外なら
+            kk_rct.move_ip(-sum_mv[0], -sum_mv[1])#移動をなかったことにする
+        yoko, tate = check_bound(bb_rct)
+        if yoko == False:
+            vx *= -1
+        if tate == False:
+            vy *= -1
         bb_rct.move_ip(vx, vy)
+        screen.blit(kk_img, kk_rct)
         screen.blit(bb_img, bb_rct)
         pg.display.update()
         tmr += 1
