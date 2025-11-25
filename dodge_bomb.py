@@ -136,7 +136,7 @@ def main():
             gameover(screen)
             return
 
-        idx = min(tmr // 500, 9)
+        idx = min(tmr // 500, 9)#タイマー機能 0〜9 の範囲に制限
         avx = vx*bb_accs[idx]
         avy = vy*bb_accs[idx]
         bb_rct.move_ip(avx, avy)
