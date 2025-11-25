@@ -68,7 +68,6 @@ def gameover(screen: pg.Surface) -> None:
     time.sleep(5)
 
 
-
 def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
     """爆弾画像のリストと加速度のリストを作成する関数
     返り値: 
