@@ -80,12 +80,8 @@ def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
     for r in range(1, 11):      # 1〜10段階の大きさを作成
         size = 20 * r
         bb_img = pg.Surface((size, size), pg.SRCALPHA)  # 透明背景のSurface
-        pg.draw.circle(
-            bb_img,
-            (255, 0, 0),        # 赤い円
-            (size // 2, size // 2),
-            size // 2
-        )
+        
+        pg.draw.circle(bb_img,(255, 0, 0),(size // 2, size // 2), size // 2)
         bb_imgs.append(bb_img)
 
     return bb_imgs, bb_accs
@@ -111,7 +107,7 @@ def get_kk_imgs() -> dict[tuple[int, int], pg.Surface]:
     }
     return kk_dict
         
-    
+
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
