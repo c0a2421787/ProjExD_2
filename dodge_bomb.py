@@ -113,32 +113,6 @@ def get_kk_imgs() -> dict[tuple[int, int], pg.Surface]:
     return kk_dict
         
     
-# kk_dict = {
-#     (0, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 270, 0.9),    # 上
-#     (0, 5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 90, 0.9),     # 下
-#     (-5, 0): pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9),    # 左
-#     (5, 0): pg.transform.flip(pg.image.load("fig/3.png"), True, False),     # 右
-#     (-5, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 315, 0.9),   # 左上
-#     (5, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 225, 0.9),    # 右上
-#     (-5, 5): pg.transform.flip(pg.transform.rotozoom(pg.image.load("fig/3.png"), 45, 0.9), True, False),    # 左下
-#     (5, 5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 135, 0.9),     # 右下
-#     (0, 0): pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9)      # 静止
-# }
-
-# kk_dict = {
-#     (0, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 270, 0.9),    # 上
-#     (0, 5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 90, 0.9),     # 下
-#     (-5, 0): pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9),    # 左
-#     (5, 0): pg.transform.flip(pg.image.load("fig/3.png"), True, False),     # 右
-#     (-5, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 315, 0.9),   # 左上
-#     (5, -5): pg.transform.rotozoom(pg.image.load("fig/3.png"), 225, 0.9),    # 右上
-#     (-5, 5): pg.transform.flip(pg.transform.rotozoom(pg.image.load("fig/3.png"), 45, 0.9), True, False),    # 左下
-#     (5, 5): pg.transform.rotozoom(pg.transform.flip(pg.image.load("fig/3.png"), True, False), 135, 0.9),     # 右下
-#     (0, 0): pg.transform.rotozoom(pg.image.load("fig/3.png"), 0, 0.9)      # 静止
-# }
-    
-
-
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
